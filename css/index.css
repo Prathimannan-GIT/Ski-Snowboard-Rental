@@ -220,6 +220,192 @@ h4 {
     box-shadow: 0 10px 20px -5px rgba(0, 168, 232, 0.4);
 }
 
+/* Testimonial Cards - Fix for horizontal name layout */
+@media (min-width: 768px) {
+    .testimonial-card .flex.items-center.gap-4 {
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    .testimonial-card .flex.items-center.gap-4 > div:last-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        min-width: 0;
+    }
+    
+    .testimonial-card .flex.items-center.gap-4 .font-bold,
+    .testimonial-card .flex.items-center.gap-4 .text-sm {
+        margin: 0;
+        padding: 0;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .testimonial-card .flex.items-center.gap-4 .font-bold {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    
+    .testimonial-card .flex.items-center.gap-4 .text-sm {
+        font-size: 0.875rem;
+        margin-top: 2px;
+    }
+}
+
+/* Rentals Page Hero Section Fix */
+@media (max-width: 1024px) {
+    header.pt-32.pb-16 .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    header.pt-32.pb-16 {
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    header.pt-32.pb-16 h1,
+    header.pt-32.pb-16 p {
+        max-width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Fix filter bar layout */
+    .flex.flex-wrap.items-center.justify-between.gap-6.mb-12.pb-8 {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+        width: 100%;
+    }
+    
+    .flex.flex-wrap.items-center.gap-4 {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        width: 100%;
+    }
+    
+    .relative input[type="text"] {
+        width: 100%;
+        max-width: none;
+        flex: 1;
+    }
+    
+    /* Remove any fixed widths that might cause gaps */
+    header * {
+        box-sizing: border-box;
+    }
+    
+    .container {
+        box-sizing: border-box;
+    }
+}
+
+/* Specific Tablet Fix */
+@media (min-width: 768px) and (max-width: 1024px) {
+    header.pt-32.pb-16 .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        width: 100%;
+    }
+    
+    header.pt-32.pb-16 h1,
+    header.pt-32.pb-16 p {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    
+    /* Ensure filter bar takes full width */
+    .flex.flex-wrap.items-center.justify-between.gap-6.mb-12.pb-8 {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .flex.flex-wrap.items-center.gap-4 {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Center all buttons specifically */
+    .flex.flex-wrap.items-center.gap-4 button {
+        margin: 0;
+        text-align: center;
+    }
+    
+    .relative input[type="text"] {
+        width: 100%;
+        max-width: none;
+        flex: 1;
+        text-align: center;
+    }
+    
+    /* Apply smaller Rent Now buttons for tablet too */
+    a[href="#"].btn-primary {
+        height: 32px !important;
+        min-width: 100px !important;
+        font-size: 0.7rem !important;
+        padding: 0.3rem 0.6rem !important;
+    }
+    
+    /* Even more aggressive targeting for tablet */
+    @media (min-width: 768px) {
+        a.btn-primary[href="#"] {
+            height: 32px !important;
+            min-width: 100px !important;
+            font-size: 0.7rem !important;
+            padding: 0.3rem 0.6rem !important;
+        }
+    }
+}
+
+/* Smaller Rent Buttons */
+.btn-primary {
+    background-color: var(--accent);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 15px -3px rgba(255, 76, 41, 0.2);
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    min-height: 40px;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    background-color: var(--accent-hover);
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+/* Rental Page Specific - Smaller Rent Now Buttons */
+a[href="#"].btn-primary {
+    height: 40px !important;
+    min-width: 120px !important;
+    font-size: 0.8rem !important;
+    padding: 0.4rem 0.8rem !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
@@ -236,4 +422,555 @@ h4 {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-dark);
+}
+
+/* Navigation Layout */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    transition: all 0.3s ease;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.nav-brand:hover {
+    transform: scale(1.05);
+}
+
+.nav-logo {
+    height: 2.5rem;
+    width: 2.5rem;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.nav-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+.desktop-nav {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-actions {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theme-toggle {
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: var(--text-main);
+}
+
+.theme-toggle:hover {
+    background-color: rgba(0, 168, 232, 0.1);
+}
+
+.sign-in {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sign-in:hover {
+    color: var(--primary);
+}
+
+.mobile-burger {
+    display: block;
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+@media (min-width: 1024px) {
+    .desktop-nav {
+        display: flex;
+    }
+    
+    .nav-actions {
+        display: flex;
+    }
+    
+    .mobile-burger {
+        display: none;
+    }
+    
+    .main-nav {
+        padding: 0 3rem;
+    }
+}
+
+/* Mobile Menu */
+#menu-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 60;
+    display: none;
+    backdrop-filter: blur(4px);
+}
+
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 280px;
+    background-color: var(--bg-card);
+    z-index: 70;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+}
+
+#mobile-menu.active {
+    transform: translateX(0);
+}
+
+#menu-overlay.active {
+    display: block;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transform: scale(1.05);
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 0.375rem 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: white;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: white;
+    margin-bottom: 2.5rem;
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.hero-btn-primary {
+    height: 3.5rem;
+    min-width: 180px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.hero-btn-secondary {
+    height: 3.5rem;
+    min-width: 180px;
+    border-color: white;
+    color: white;
+    backdrop-filter: blur(8px);
+}
+
+.hero-btn-secondary:hover {
+    background-color: white;
+    color: black;
+}
+
+@media (min-width: 640px) {
+    .hero-title {
+        font-size: 4.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.25rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: row;
+    }
+    
+    .hero-btn-primary,
+    .hero-btn-secondary {
+        width: auto;
+    }
+}
+
+/* Testimonial Cards */
+.testimonial-card {
+    background-color: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 2.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    border-color: var(--primary);
+}
+
+.testimonial-quote {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+    width: 6rem;
+    height: 6rem;
+    color: var(--primary);
+    opacity: 0.05;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover .testimonial-quote {
+    transform: rotate(12deg);
+}
+
+.star {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: var(--accent);
+    color: var(--accent);
+}
+
+.testimonial-content {
+    flex: 1;
+    min-height: 120px;
+    margin-bottom: 2rem;
+}
+
+.testimonial-text {
+    font-style: italic;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--text-main);
+}
+
+.testimonial-footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.testimonial-avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #e2e8f0;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.testimonial-role {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* Container and Section Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.py-20 {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.py-24 {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.mb-16 {
+    margin-bottom: 4rem;
+}
+
+.mb-12 {
+    margin-bottom: 3rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+.gap-6 {
+    gap: 1.5rem;
+}
+
+.gap-8 {
+    gap: 2rem;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .lg\:grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    
+    .lg\:grid-cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* Section Backgrounds */
+.bg-slate-50 {
+    background-color: #f8fafc;
+}
+
+.dark .bg-slate-50 {
+    background-color: rgba(15, 23, 42, 0.5);
+}
+
+/* Section Headers */
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.tracking-\[0\.2em\] {
+    letter-spacing: 0.2em;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.text-4xl {
+    font-size: 2.25rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+/* Mobile Header/Hero Overlap Fix */
+@media (max-width: 768px) {
+    header {
+        margin-top: var(--nav-mobile-height);
+        min-height: calc(100vh - var(--nav-mobile-height));
+    }
+    
+    #main-nav {
+        height: var(--nav-mobile-height) !important;
+    }
+    
+    #main-nav .container {
+        padding: 0 1rem;
+    }
+    
+    #main-nav img {
+        height: 2rem !important;
+        width: 2rem !important;
+    }
+    
+    #main-nav span {
+        font-size: 0.875rem !important;
+    }
+}
+
+/* Card Alignment Fix for Tablet & Desktop */
+@media (min-width: 768px) {
+    .testimonials-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+    
+    .testimonial-card {
+        flex: 1;
+        min-width: calc(50% - 1rem);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .testimonial-card .testimonial-content {
+        flex: 1;
+        min-height: 120px;
+        margin-bottom: 2rem;
+    }
+    
+    .testimonial-card .testimonial-footer {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .testimonial-card {
+        min-width: calc(33.333% - 1.333rem);
+    }
 }

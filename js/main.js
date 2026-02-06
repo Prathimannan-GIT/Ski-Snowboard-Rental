@@ -34,14 +34,14 @@ function initMobileMenu() {
 
     if (burgerBtn && mobileMenu) {
         burgerBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('-translate-x-full');
-            overlay.classList.remove('hidden');
+            mobileMenu.classList.add('active');
+            overlay.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
 
         const closeMenu = () => {
-            mobileMenu.classList.add('-translate-x-full');
-            overlay.classList.add('hidden');
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
             document.body.style.overflow = '';
         };
 
@@ -54,28 +54,32 @@ function initMobileMenu() {
 function initScrollNavbar() {
     const nav = document.getElementById('main-nav');
     const navLinks = document.querySelectorAll('.nav-link');
-    const brand = nav.querySelector('span');
+    const brand = nav.querySelector('.nav-title');
     const burger = document.getElementById('burger-btn');
     
     const applyScrollStyles = () => {
         if (window.scrollY > 50) {
-            nav.classList.add('bg-white/95', 'dark:bg-slate-900/95', 'backdrop-blur-md', 'shadow-lg');
-            nav.classList.remove('text-white');
+            nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            nav.style.backdropFilter = 'blur(12px)';
+            nav.style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1)';
+            nav.style.color = 'var(--text-main)';
             nav.style.height = '70px';
-            if (brand) brand.classList.replace('text-white', 'text-[var(--primary)]');
-            if (burger) burger.classList.remove('text-white');
+            if (brand) brand.style.color = 'var(--primary)';
+            if (burger) burger.style.color = 'var(--text-main)';
         } else {
-            nav.classList.remove('bg-white/95', 'dark:bg-slate-900/95', 'backdrop-blur-md', 'shadow-lg');
-            // If we are on a page with a hero (like index or home2), we might want white text at top
-            const hasHero = document.querySelector('header.relative.h-\\[90vh\\], header.relative.h-screen');
+            nav.style.backgroundColor = 'var(--bg-card)';
+            nav.style.backdropFilter = 'none';
+            nav.style.boxShadow = 'none';
+            // If we are on a page with a hero, we might want white text at top
+            const hasHero = document.querySelector('.hero-section');
             if (hasHero) {
-                nav.classList.add('text-white');
-                if (brand) brand.classList.add('text-white');
-                if (burger) burger.classList.add('text-white');
+                nav.style.color = 'white';
+                if (brand) brand.style.color = 'white';
+                if (burger) burger.style.color = 'white';
             } else {
-                nav.classList.remove('text-white');
+                nav.style.color = 'var(--text-main)';
             }
-            nav.style.height = '80px';
+            nav.style.height = 'var(--nav-height)';
         }
     };
 
@@ -85,16 +89,27 @@ function initScrollNavbar() {
 
 // Highlight Active Navigation Link
 function highlightActiveLink() {
+    // Get current page filename
     const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    const links = document.querySelectorAll('.nav-link, .sidebar-link');
     
-    links.forEach(link => {
+    // Clear all active states first
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Find and highlight only the exact matching link
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        if (href === currentPath || (currentPath === 'index.html' && href === '#')) {
+        
+        // Only highlight if exact match
+        if (href === currentPath) {
             link.classList.add('active');
-            if (link.classList.contains('sidebar-link')) {
-                link.classList.add('bg-sky-500', 'text-white');
-            }
+        }
+        // Special case: if we're on index.html, highlight the "Home" link
+        else if (currentPath === 'index.html' && href === 'index.html') {
+            link.classList.add('active');
         }
     });
 }

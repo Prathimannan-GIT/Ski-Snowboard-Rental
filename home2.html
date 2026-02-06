@@ -50,7 +50,6 @@
                 <a href="packages.html" class="nav-link">Packages</a>
                 <a href="locations.html" class="nav-link">Locations</a>
                 <a href="pricing.html" class="nav-link">Pricing</a>
-                <a href="#" class="nav-link">Classes</a>
                 <a href="support.html" class="nav-link">Support</a>
             </div>
 
@@ -132,56 +131,147 @@
         </div>
     </header>
 
-    <!-- Booking Timeline -->
-    <section class="py-24 bg-[var(--bg-page)] relative">
-        <div class="container mx-auto px-6 text-center mb-20">
-            <h2 class="text-sm font-bold text-[var(--primary)] tracking-[0.2em] uppercase mb-4">How it works</h2>
-            <h3 class="text-4xl md:text-5xl font-bold">Your Journey to the Peaks</h3>
+   <!-- How It Works -->
+<section class="py-24 bg-white dark:bg-slate-900">
+  <div class="container mx-auto px-6 text-center mb-16">
+    <h2 class="text-sm font-bold text-[var(--primary)] tracking-[0.2em] uppercase mb-4">
+      How It Works
+    </h2>
+    <h3 class="text-4xl font-bold">
+      Your Journey to the Peaks
+    </h3>
+  </div>
+
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+
+      <!-- Step 1 -->
+      <div class="flex flex-col items-center text-center h-full">
+        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-sky-500 text-white font-bold text-lg mb-6">
+          1
         </div>
 
+        <h4 class="font-bold text-lg mb-3 whitespace-nowrap">
+          Choose Gear
+        </h4>
+
+        <p class="text-sm text-[var(--text-muted)] max-w-xs">
+          Select from our premium ski or snowboard packages tailored for you.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex flex-col items-center text-center h-full">
+        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-sky-500 text-white font-bold text-lg mb-6">
+          2
+        </div>
+
+        <h4 class="font-bold text-lg mb-3 whitespace-nowrap">
+          Select Dates
+        </h4>
+
+        <p class="text-sm text-[var(--text-muted)] max-w-xs">
+          Pick your arrival and return dates to ensure gear availability.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex flex-col items-center text-center h-full">
+        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-sky-500 text-white font-bold text-lg mb-6">
+          3
+        </div>
+
+        <h4 class="font-bold text-lg mb-3 whitespace-nowrap">
+          Pickup / Delivery
+        </h4>
+
+        <p class="text-sm text-[var(--text-muted)] max-w-xs">
+          Get your gear delivered to your resort or pick it up at our partner hubs.
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="flex flex-col items-center text-center h-full">
+        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-orange-500 text-white font-bold text-lg mb-6">
+          4
+        </div>
+
+        <h4 class="font-bold text-lg mb-3 whitespace-nowrap">
+          Ride!
+        </h4>
+
+        <p class="text-sm text-[var(--text-muted)] max-w-xs">
+          Hit the slopes with professionally tuned and perfectly fitted gear.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- Benefits Section -->
+    <section class="py-24 bg-[var(--bg-page)]">
         <div class="container mx-auto px-6">
-            <div class="relative flex flex-col md:flex-row gap-12 md:gap-0 justify-between items-start">
-                <div class="absolute top-1/2 left-0 w-full h-0.5 bg-[var(--primary)]/20 hidden md:block -z-10"></div>
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-[var(--primary)] tracking-[0.2em] uppercase mb-4">
+                    Why Choose Apex Alpine
+                </h2>
+                <h3 class="text-4xl font-bold">Benefits That Matter</h3>
+            </div>
 
-                <!-- Step 1 -->
-                <div class="flex-1 text-center px-4">
-                    <div
-                        class="w-16 h-16 bg-[var(--primary)] text-white rounded-full flex items-center justify-center mx-auto mb-8 font-bold text-2xl relative shadow-lg shadow-sky-500/20">
-                        1
-                        <div class="absolute inset-0 rounded-full animate-ping bg-[var(--primary)]/20"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-[var(--bg-card)] p-8 rounded-[2rem] border border-[var(--border-color)] hover:border-[var(--primary)] transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 bg-sky-100 dark:bg-sky-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
+                        <i data-lucide="truck" class="w-8 h-8 text-[var(--primary)]"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Choose Gear</h4>
-                    <p class="text-[var(--text-muted)]">Select from our premium ski or snowboard packages tailored for
-                        you.</p>
+                    <h4 class="text-xl font-bold mb-4">Free Delivery</h4>
+                    <p class="text-[var(--text-muted)] leading-relaxed">We deliver directly to your resort or preferred pickup location. No hassle, no waiting in lines.</p>
                 </div>
 
-                <!-- Step 2 -->
-                <div class="flex-1 text-center px-4">
-                    <div
-                        class="w-16 h-16 bg-[var(--primary)] text-white rounded-full flex items-center justify-center mx-auto mb-8 font-bold text-2xl relative shadow-lg shadow-sky-500/20">
-                        2</div>
-                    <h4 class="text-xl font-bold mb-4">Select Dates</h4>
-                    <p class="text-[var(--text-muted)]">Pick your arrival and return dates to ensure gear availability.
-                    </p>
+                <!-- Benefit 2 -->
+                <div class="bg-[var(--bg-card)] p-8 rounded-[2rem] border border-[var(--border-color)] hover:border-[var(--primary)] transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-[var(--accent)]"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Premium Gear</h4>
+                    <p class="text-[var(--text-muted)] leading-relaxed">Latest 2026 models from top brands. All equipment professionally maintained and safety-checked.</p>
                 </div>
 
-                <!-- Step 3 -->
-                <div class="flex-1 text-center px-4">
-                    <div
-                        class="w-16 h-16 bg-[var(--primary)] text-white rounded-full flex items-center justify-center mx-auto mb-8 font-bold text-2xl relative shadow-lg shadow-sky-500/20">
-                        3</div>
-                    <h4 class="text-xl font-bold mb-4">Pickup / Delivery</h4>
-                    <p class="text-[var(--text-muted)]">Get your gear delivered to your resort or pick it up at our
-                        partner hubs.</p>
+                <!-- Benefit 3 -->
+                <div class="bg-[var(--bg-card)] p-8 rounded-[2rem] border border-[var(--border-color)] hover:border-[var(--primary)] transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
+                        <i data-lucide="clock" class="w-8 h-8 text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Flexible Timing</h4>
+                    <p class="text-[var(--text-muted)] leading-relaxed">Schedule delivery and pickup around your plans. Early morning or evening options available.</p>
                 </div>
 
-                <!-- Step 4 -->
-                <div class="flex-1 text-center px-4">
-                    <div
-                        class="w-16 h-16 bg-[var(--accent)] text-white rounded-full flex items-center justify-center mx-auto mb-8 font-bold text-2xl relative shadow-lg shadow-orange-500/20">
-                        4</div>
-                    <h4 class="text-xl font-bold mb-4">Ride!</h4>
-                    <p class="text-[var(--text-muted)]">Hit the slopes with professionally tuned and fitted gear.</p>
+                <!-- Benefit 4 -->
+                <div class="bg-[var(--bg-card)] p-8 rounded-[2rem] border border-[var(--border-color)] hover:border-[var(--primary)] transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
+                        <i data-lucide="users" class="w-8 h-8 text-purple-600 dark:text-purple-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Expert Support</h4>
+                    <p class="text-[var(--text-muted)] leading-relaxed">Professional fitting assistance and 24/7 customer support. We're here when you need us.</p>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="bg-[var(--bg-card)] p-8 rounded-[2rem] border border-[var(--border-color)] hover:border-[var(--primary)] transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
+                        <i data-lucide="heart" class="w-8 h-8 text-red-600 dark:text-red-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Satisfaction Guaranteed</h4>
+                    <p class="text-[var(--text-muted)] leading-relaxed">Not satisfied? We'll make it right. Your mountain adventure is our priority.</p>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="bg-[var(--bg-card)] p-8 rounded-[2rem] border border-[var(--border-color)] hover:border-[var(--primary)] transition-all duration-300 text-center group">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
+                        <i data-lucide="zap" class="w-8 h-8 text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Quick Swap</h4>
+                    <p class="text-[var(--text-muted)] leading-relaxed">Don't like your gear? Swap it anytime during your rental period. Free of charge.</p>
                 </div>
             </div>
         </div>
