@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages | Apex Alpine</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00A8E8',
+                        secondary: '#1B262C',
+                        accent: '#FF4C29',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-[var(--bg-page)] text-[var(--text-main)] transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav id="main-nav"
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 flex items-center px-6 lg:px-12"
+        style="height: 80px;">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo & Brand -->
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="assets/logo.png" alt="Apex Alpine Logo"
+                    class="h-10 w-10 object-contain transition-transform group-hover:scale-110">
+                <span class="text-lg sm:text-xl font-bold tracking-tight text-[var(--primary)] uppercase">Apex
+                    Alpine</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center gap-6">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="home2.html" class="nav-link">Home 2</a>
+                <a href="rentals.html" class="nav-link">Rentals</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="locations.html" class="nav-link">Locations</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="#" class="nav-link">Classes</a>
+                <a href="support.html" class="nav-link">Support</a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="hidden lg:flex items-center gap-4">
+                <button onclick="toggleTheme()"
+                    class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                    <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+                    <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                </button>
+                <a href="login.html" class="text-sm font-semibold hover:text-[var(--primary)] transition-colors">Sign
+                    In</a>
+                <a href="rentals.html" class="btn-primary" style="height: 48px;">Book Now</a>
+            </div>
+
+            <!-- Mobile Burger -->
+            <button id="burger-btn" class="lg:hidden p-2 text-[var(--text-main)]">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Slide-in Menu -->
+    <div id="menu-overlay" class="fixed inset-0 bg-black/50 z-[60] hidden backdrop-blur-sm"></div>
+    <div id="mobile-menu"
+        class="fixed top-0 left-0 h-full w-[280px] bg-[var(--bg-card)] z-[70] shadow-2xl transition-transform -translate-x-full flex flex-col p-6">
+        <div class="flex justify-between items-center mb-10">
+            <div class="flex items-center gap-2">
+                <img src="assets/logo.png" alt="Logo" class="h-8 w-8">
+                <span class="font-bold text-[var(--primary)]">APEX ALPINE</span>
+            </div>
+            <button id="close-menu" class="p-1"><i data-lucide="x" class="w-6 h-6"></i></button>
+        </div>
+        <div class="flex flex-col gap-6 text-lg font-medium">
+            <a href="index.html" class="flex items-center gap-3 text-[var(--primary)]"><i data-lucide="home"
+                    class="w-5 h-5"></i> Home</a>
+            <a href="home2.html" class="flex items-center gap-3"><i data-lucide="star" class="w-5 h-5"></i> Home 2</a>
+            <a href="rentals.html" class="flex items-center gap-3"><i data-lucide="mountain" class="w-5 h-5"></i>
+                Rentals</a>
+            <a href="packages.html" class="flex items-center gap-3"><i data-lucide="package" class="w-5 h-5"></i>
+                Packages</a>
+            <a href="locations.html" class="flex items-center gap-3"><i data-lucide="map-pin" class="w-5 h-5"></i>
+                Locations</a>
+            <a href="pricing.html" class="flex items-center gap-3"><i data-lucide="credit-card" class="w-5 h-5"></i>
+                Pricing</a>
+            <a href="#" class="flex items-center gap-3"><i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                Classes</a>
+            <a href="dashboard.html" class="flex items-center gap-3"><i data-lucide="layout-dashboard"
+                    class="w-5 h-5"></i> Dashboard</a>
+            <hr class="border-[var(--border-color)]">
+            <button onclick="toggleTheme()" class="flex items-center gap-3">
+                <i data-lucide="sun-moon" class="w-5 h-5"></i> Switch Theme
+            </button>
+            <a href="login.html" class="btn-primary mt-4" style="height: 48px;">Book Your Gear</a>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <header
+        class="pt-32 pb-20 bg-gradient-to-br from-sky-50 to-white dark:from-slate-900 dark:to-slate-950 overflow-hidden relative text-center">
+        <div class="container mx-auto px-6 relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Rental Packages</h1>
+            <p class="text-[var(--text-muted)] text-xl max-w-2xl mx-auto leading-relaxed">Save more by bundling your
+                equipment.
+                Whether you're a first-timer or a seasoned pro, we have the perfect set for you.</p>
+        </div>
+        <i data-lucide="package"
+            class="absolute right-[-5%] bottom-[-20%] w-96 h-96 opacity-5 dark:opacity-10 rotate-12"></i>
+    </header>
+
+    <!-- Packages Section -->
+    <section class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Package 1: Beginner -->
+                <div
+                    class="flex flex-col bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] overflow-hidden hover:shadow-2xl transition-all duration-500 group text-center">
+                    <div class="p-10 border-b border-[var(--border-color)]">
+                        <div
+                            class="w-14 h-14 bg-sky-100 dark:bg-sky-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i data-lucide="baby" class="w-8 h-8 text-[var(--primary)]"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Beginner Bundle</h3>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">Forgiving gear designed to help you learn fast
+                            and build confidence.</p>
+                        <p class="text-4xl font-bold text-[var(--text-main)]">$49<span
+                                class="text-lg font-normal text-[var(--text-muted)]">/day</span></p>
+                    </div>
+                    <div class="p-10 flex-1">
+                        <ul class="flex flex-col gap-4 mb-10 text-left max-w-xs mx-auto">
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-green-500 w-5 h-5"></i> Forgiving Rocker Skis</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-green-500 w-5 h-5"></i> Soft Flex Boots</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-green-500 w-5 h-5"></i> Light Adjustable Poles</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-green-500 w-5 h-5"></i> Standard Helmet</li>
+                        </ul>
+                        <a href="#" class="btn-primary w-full" style="height: 56px;">Select Package</a>
+                    </div>
+                </div>
+
+                <!-- Package 2: Pro Rider -->
+                <div
+                    class="flex flex-col bg-[var(--secondary)] rounded-[2.5rem] border border-[var(--primary)] overflow-hidden scale-105 shadow-2xl z-10 relative text-center">
+                    <div
+                        class="absolute top-6 right-8 bg-[var(--primary)] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                        Most Popular</div>
+                    <div class="p-10 border-b border-white/10 text-white">
+                        <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i data-lucide="mountain" class="w-8 h-8 text-[var(--primary)]"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Pro Rider Set</h3>
+                        <p class="text-white/60 text-sm mb-6">High-performance demo gear for experts who want the best
+                            tech on the mountain.</p>
+                        <p class="text-4xl font-bold text-white">$79<span
+                                class="text-lg font-normal opacity-50">/day</span></p>
+                    </div>
+                    <div class="p-10 flex-1 text-white">
+                        <ul class="flex flex-col gap-4 mb-10 text-left max-w-xs mx-auto">
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-[var(--primary)] w-5 h-5"></i> 2026 Model Skis/Board</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-[var(--primary)] w-5 h-5"></i> Carbon Stiff Flex Boots</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-[var(--primary)] w-5 h-5"></i> Pro Accessory Kit</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-[var(--primary)] w-5 h-5"></i> Daily Wax & Prep</li>
+                        </ul>
+                        <a href="#" class="btn-primary w-full" style="height: 56px;">Select Package</a>
+                    </div>
+                </div>
+
+                <!-- Package 3: Family Pack -->
+                <div
+                    class="flex flex-col md:flex-row lg:flex-col md:col-span-2 lg:col-span-1 md:text-left lg:text-center bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] overflow-hidden hover:shadow-2xl transition-all duration-500 group text-center">
+                    <div
+                        class="p-10 border-b md:border-b-0 md:border-r border-[var(--border-color)] md:w-1/2 lg:w-full flex flex-col justify-center">
+                        <div
+                            class="w-14 h-14 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto md:mx-0 lg:mx-auto">
+                            <i data-lucide="users" class="w-8 h-8 text-[var(--accent)]"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2">Family Package</h3>
+                        <p class="text-[var(--text-muted)] text-sm mb-6">Complete gear for 2 adults and 2 kids. Maximum
+                            convenience for the whole crew.</p>
+                        <p class="text-4xl font-bold text-[var(--text-main)] md:hidden lg:block">$169<span
+                                class="text-lg font-normal text-[var(--text-muted)]">/day</span></p>
+                    </div>
+                    <div class="p-10 flex-1 md:w-1/2 lg:w-full flex flex-col justify-center">
+                        <p class="text-4xl font-bold text-[var(--text-main)] hidden md:block lg:hidden mb-6">$169<span
+                                class="text-lg font-normal text-[var(--text-muted)]">/day</span></p>
+                        <ul class="flex flex-col gap-4 mb-10 text-left max-w-xs mx-auto md:mx-0 lg:mx-auto">
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-green-500 w-5 h-5"></i> 4 Complete Gear Sets</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-green-500 w-5 h-5"></i> On-Mountain Storage</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-green-500 w-5 h-5"></i> Free Fitting for Kids</li>
+                            <li class="flex items-center gap-3"><i data-lucide="check"
+                                    class="text-green-500 w-5 h-5"></i> 10% Discount on Lessons</li>
+                        </ul>
+                        <a href="#" class="btn-primary w-full" style="height: 56px;">Select Package</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-day Discount Banner -->
+    <section class="pb-24">
+        <div class="container mx-auto px-6">
+            <div
+                class="bg-[var(--primary)] rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 text-white shadow-xl">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center shrink-0">
+                        <i data-lucide="calendar" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold">Riding for more than 3 days?</h4>
+                        <p class="opacity-80">Get an automatic 15% discount on any package when booking multi-day
+                            rentals.</p>
+                    </div>
+                </div>
+                <button
+                    class="bg-white text-[var(--primary)] px-8 py-3 rounded-xl font-bold hover:scale-105 transition-transform whitespace-nowrap">Check
+                    Multi-day Rates</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[var(--secondary)] text-white pt-24 pb-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="flex flex-col gap-6">
+                    <div class="flex items-center gap-3">
+                        <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+                        <span class="text-xl font-bold tracking-tight uppercase">Apex Alpine</span>
+                    </div>
+                    <p class="opacity-70 leading-relaxed">Providing high-performance ski and snowboard rentals with a
+                        focus on convenience, quality, and community.</p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="social-icon w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--primary)] hover:scale-110 transition-all duration-300"><i
+                                data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#"
+                            class="social-icon w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--primary)] hover:scale-110 transition-all duration-300"><i
+                                data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#"
+                            class="social-icon w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--primary)] hover:scale-110 transition-all duration-300"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#"
+                            class="social-icon w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[var(--primary)] hover:scale-110 transition-all duration-300"><i
+                                data-lucide="youtube" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <h4 class="text-lg font-bold mb-8">Quick Links</h4>
+                    <ul class="flex flex-col gap-4 opacity-70">
+                        <li><a href="index.html"
+                                class="hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block">Home</a>
+                        </li>
+                        <li><a href="rentals.html"
+                                class="hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block">Rentals</a>
+                        </li>
+                        <li><a href="packages.html"
+                                class="hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block">Packages</a>
+                        </li>
+                        <li><a href="locations.html"
+                                class="hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block">Locations</a>
+                        </li>
+                        <li><a href="pricing.html"
+                                class="hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block">Pricing</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-lg font-bold mb-8">Support</h4>
+                    <ul class="flex flex-col gap-4 opacity-70">
+                        <li><a href="support.html"
+                                class="hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block">Help
+                                Center</a></li>
+                        <li><a href="how-it-works.html"
+                                class="hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block">How
+                                It Works</a></li>
+                        <li><a href="blog.html"
+                                class="hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block">Snow
+                                Guide</a></li>
+                        <li><a href="legal.html"
+                                class="hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block">Privacy
+                                Policy</a></li>
+                        <li><a href="legal.html"
+                                class="hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block">Terms
+                                of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-lg font-bold mb-8">Snow Alerts</h4>
+                    <p class="opacity-70 mb-6 leading-relaxed">Get the latest snow conditions and exclusive deals sent
+                        to your inbox.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Your email address"
+                            class="bg-white/10 border-none rounded-xl px-4 py-3 text-white placeholder:text-white/40 focus:ring-2 focus:ring-[var(--primary)] outline-none">
+                        <button class="btn-primary w-full" style="height: 48px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <hr class="border-white/10 mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 opacity-50 text-sm">
+                <p>&copy; 2026 Apex Alpine Rentals. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Safety Guide</a>
+                    <a href="#" class="hover:text-white transition-colors">Site Map</a>
+                    <a href="#" class="hover:text-white transition-colors">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

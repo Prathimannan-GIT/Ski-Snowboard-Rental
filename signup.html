@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Apex Alpine</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00A8E8',
+                        secondary: '#1B262C',
+                        accent: '#FF4C29',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            overflow: hidden;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100 dark:bg-slate-950 flex items-center justify-center p-6">
+
+    <div
+        class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 bg-[var(--bg-card)] rounded-[2.5rem] shadow-2xl overflow-hidden border border-[var(--border-color)] animate-fade-in">
+
+        <!-- Branding Side -->
+        <div
+            class="hidden md:flex flex-col items-center justify-center bg-[var(--secondary)] text-white p-12 text-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+                <img src="https://images.unsplash.com/photo-1544274411-a797230a63f1?q=80&w=1974&auto=format&fit=crop"
+                    alt="Bg" class="w-full h-full object-cover">
+            </div>
+            <div class="relative z-10">
+                <a href="index.html" class="flex flex-col items-center gap-4 mb-6">
+                    <img src="assets/logo.png" alt="Logo"
+                        class="h-10 w-16 object-contain hover:scale-110 transition-transform">
+                    <h1 class="text-3xl font-bold uppercase tracking-widest">Apex Alpine</h1>
+                </a>
+                <h2 class="text-2xl font-bold mb-4">Join the Elite Crew</h2>
+                <p class="text-white/60 text-lg leading-relaxed">Save your gear preferences, track your loyalty points,
+                    and get priority delivery access.</p>
+            </div>
+        </div>
+
+        <!-- Signup Card -->
+        <div class="p-8 md:p-12 flex flex-col justify-center overflow-y-auto max-h-[100vh]">
+            <div class="md:hidden flex items-center justify-center gap-2 mb-8">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="assets/logo.png" alt="Logo" class="h-8 w-8">
+                    <span class="font-bold text-[var(--primary)] uppercase">Apex Alpine</span>
+                </a>
+            </div>
+
+            <h2 class="text-3xl font-bold mb-2">Create Account</h2>
+            <p class="text-[var(--text-muted)] mb-5 text-sm">Join 15,000+ riders who trust Apex Alpine for their winter
+                adventures.</p>
+
+            <form class="flex flex-col gap-4">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold mb-1 ml-1 opacity-70">First Name</label>
+                        <input type="text" placeholder="John"
+                            class="w-full bg-slate-50 dark:bg-slate-900 border border-[var(--border-color)] rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold mb-1 ml-1 opacity-70">Last Name</label>
+                        <input type="text" placeholder="Doe"
+                            class="w-full bg-slate-50 dark:bg-slate-900 border border-[var(--border-color)] rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold mb-1 ml-1 opacity-70">Email Address</label>
+                    <input type="email" placeholder="john@example.com"
+                        class="w-full bg-slate-50 dark:bg-slate-900 border border-[var(--border-color)] rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold mb-1 ml-1 opacity-70">Password</label>
+                    <input type="password" placeholder="••••••••"
+                        class="w-full bg-slate-50 dark:bg-slate-900 border border-[var(--border-color)] rounded-xl px-4 py-2.5 outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all">
+                </div>
+
+                <div class="flex items-start gap-2 ml-1">
+                    <input type="checkbox" id="terms" class="w-4 h-4 rounded text-[var(--primary)] mt-0.5">
+                    <label for="terms" class="text-xs text-[var(--text-muted)] leading-relaxed">I agree to the <a
+                            href="legal.html" class="text-[var(--primary)] font-bold">Terms of Service</a> and <a
+                            href="legal.html" class="text-[var(--primary)] font-bold">Rental Agreement</a>.</label>
+                </div>
+
+                <button type="submit" class="btn-primary w-full mt-2" style="height: 52px;">Sign Up</button>
+            </form>
+
+            <p class="text-center text-sm text-[var(--text-muted)] mt-6">
+                Already have an account? <a href="login.html"
+                    class="text-[var(--primary)] font-bold hover:underline">Sign in</a>
+            </p>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

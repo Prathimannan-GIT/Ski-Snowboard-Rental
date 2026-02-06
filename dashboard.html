@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Apex Alpine</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00A8E8',
+                        secondary: '#1B262C',
+                        accent: '#FF4C29',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+
+    <!-- Dashboard Layout -->
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- Sidebar (Desktop) -->
+        <aside class="hidden lg:flex flex-col w-72 bg-[var(--bg-card)] border-r border-[var(--border-color)] p-6">
+            <div class="flex items-center gap-3 mb-12">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold text-[var(--primary)] uppercase tracking-tight">Apex Alpine</span>
+                </a>
+            </div>
+
+            <nav class="flex flex-col gap-2 flex-1">
+                <a href="dashboard.html" class="sidebar-link active">
+                    <i data-lucide="layout-dashboard"></i> Dashboard
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="calendar"></i> My Bookings
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="history"></i> Rental History
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="heart"></i> Saved Gear
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="award"></i> Loyalty Points
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="credit-card"></i> Payments
+                </a>
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="settings"></i> Settings
+                </a>
+            </nav>
+
+            <div class="mt-auto pt-6 border-t border-[var(--border-color)]">
+                <a href="login.html" class="sidebar-link text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20">
+                    <i data-lucide="log-out"></i> Logout
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+            <!-- Topbar -->
+            <header
+                class="h-20 bg-[var(--bg-card)] border-b border-[var(--border-color)] flex items-center justify-between px-6 lg:px-12 flex-shrink-0">
+                <div class="flex items-center gap-4 lg:hidden">
+                    <button id="dash-burger" class="p-2"><i data-lucide="menu"></i></button>
+                    <img src="assets/logo.png" alt="Logo" class="h-8 w-8">
+                </div>
+
+                <h2 class="hidden md:block text-xl font-bold">Rider Dashboard</h2>
+
+                <div class="flex items-center gap-4">
+                    <button class="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 relative">
+                        <i data-lucide="bell" class="w-5 h-5"></i>
+                        <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
+                    </button>
+                    <button onclick="toggleTheme()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-900">
+                        <i data-lucide="sun-moon" class="w-5 h-5"></i>
+                    </button>
+                    <div class="flex items-center gap-3 ml-2 border-l border-[var(--border-color)] pl-4">
+                        <div class="text-right hidden sm:block">
+                            <p class="text-sm font-bold">Alex Rider</p>
+                            <p class="text-xs text-[var(--text-muted)]">Pro Member</p>
+                        </div>
+                        <div
+                            class="w-10 h-10 rounded-full bg-[var(--primary)] flex items-center justify-center text-white font-bold">
+                            AR
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Scrollable Page Content -->
+            <div class="flex-1 overflow-y-auto p-6 lg:p-12">
+                <div class="max-w-7xl mx-auto">
+
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                        <div class="bg-[var(--bg-card)] p-6 rounded-3xl shadow-sm border border-[var(--border-color)]">
+                            <i data-lucide="calendar-check" class="text-[var(--primary)] mb-4 w-8 h-8"></i>
+                            <h4 class="text-[var(--text-muted)] text-sm mb-1 uppercase tracking-wider font-bold">Active
+                                Bookings</h4>
+                            <p class="text-3xl font-bold">2</p>
+                        </div>
+                        <div class="bg-[var(--bg-card)] p-6 rounded-3xl shadow-sm border border-[var(--border-color)]">
+                            <i data-lucide="clock" class="text-orange-500 mb-4 w-8 h-8"></i>
+                            <h4 class="text-[var(--text-muted)] text-sm mb-1 uppercase tracking-wider font-bold">Days on
+                                Slopes</h4>
+                            <p class="text-3xl font-bold">14</p>
+                        </div>
+                        <div class="bg-[var(--bg-card)] p-6 rounded-3xl shadow-sm border border-[var(--border-color)]">
+                            <i data-lucide="award" class="text-yellow-500 mb-4 w-8 h-8"></i>
+                            <h4 class="text-[var(--text-muted)] text-sm mb-1 uppercase tracking-wider font-bold">Total
+                                Points</h4>
+                            <p class="text-3xl font-bold">4,250</p>
+                        </div>
+                        <div class="bg-[var(--bg-card)] p-6 rounded-3xl shadow-sm border border-[var(--border-color)]">
+                            <i data-lucide="credit-card" class="text-green-500 mb-4 w-8 h-8"></i>
+                            <h4 class="text-[var(--text-muted)] text-sm mb-1 uppercase tracking-wider font-bold">Saved
+                                Amount</h4>
+                            <p class="text-3xl font-bold">$124.50</p>
+                        </div>
+                    </div>
+
+                    <!-- Main Sections -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                        <!-- Recent Activity -->
+                        <div
+                            class="lg:col-span-2 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] overflow-hidden shadow-sm">
+                            <div class="p-8 border-b border-[var(--border-color)] flex justify-between items-center">
+                                <h3 class="text-xl font-bold">My Recent Bookings</h3>
+                                <button class="text-sm text-[var(--primary)] font-bold hover:underline">View
+                                    All</button>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead
+                                        class="bg-slate-50 dark:bg-slate-900/50 text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">
+                                        <tr>
+                                            <th class="px-8 py-4">Equipment</th>
+                                            <th class="px-8 py-4">Date</th>
+                                            <th class="px-8 py-4">Status</th>
+                                            <th class="px-8 py-4 text-right">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-[var(--border-color)]">
+                                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-900/30 transition-colors">
+                                            <td class="px-8 py-6">
+                                                <div class="flex items-center gap-3">
+                                                    <div
+                                                        class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                                                        <i data-lucide="mountain"
+                                                            class="w-5 h-5 text-[var(--primary)]"></i>
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-bold">Burton Custom Board</p>
+                                                        <p class="text-xs text-[var(--text-muted)]">Size 158cm</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-8 py-6 text-sm">Feb 12 - Feb 15, 2026</td>
+                                            <td class="px-8 py-6">
+                                                <span
+                                                    class="px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full text-xs font-bold">Confirmed</span>
+                                            </td>
+                                            <td class="px-8 py-6 text-right">
+                                                <button
+                                                    class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-colors"><i
+                                                        data-lucide="more-vertical" class="w-4 h-4"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50 dark:hover:bg-slate-900/30 transition-colors">
+                                            <td class="px-8 py-6">
+                                                <div class="flex items-center gap-3">
+                                                    <div
+                                                        class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                                                        <i data-lucide="package" class="w-5 h-5 text-orange-500"></i>
+                                                    </div>
+                                                    <div>
+                                                        <p class="font-bold">Pro Alpine Skis</p>
+                                                        <p class="text-xs text-[var(--text-muted)]">Atomic Hawx 110</p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-8 py-6 text-sm">Jan 20 - Jan 22, 2026</td>
+                                            <td class="px-8 py-6">
+                                                <span
+                                                    class="px-3 py-1 bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400 rounded-full text-xs font-bold">Completed</span>
+                                            </td>
+                                            <td class="px-8 py-6 text-right">
+                                                <button
+                                                    class="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-lg transition-colors"><i
+                                                        data-lucide="more-vertical" class="w-4 h-4"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar Card / Loyalty -->
+                        <div
+                            class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2rem] p-8 text-white relative overflow-hidden shadow-xl">
+                            <div class="relative z-10">
+                                <h3 class="text-2xl font-bold mb-2">Member Perks</h3>
+                                <p class="text-white/60 text-sm mb-8">You're only <span class="text-white font-bold">750
+                                        points</span> away from a free day rental!</p>
+
+                                <div class="w-full bg-white/10 rounded-full h-2 mb-8">
+                                    <div
+                                        class="bg-[var(--primary)] h-full rounded-full w-[80%] relative shadow-[0_0_15px_rgba(0,168,232,0.5)]">
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-col gap-4">
+                                    <div
+                                        class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
+                                        <i data-lucide="zap" class="text-yellow-400"></i>
+                                        <div>
+                                            <p class="font-bold text-sm">Priority Pickup</p>
+                                            <p class="text-xs text-white/40">Skip the lines at all resorts</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 opacity-50">
+                                        <i data-lucide="shield" class="text-sky-400"></i>
+                                        <div>
+                                            <p class="font-bold text-sm">Damage Waiver Plus</p>
+                                            <p class="text-xs text-white/40">Unlock at 5,000 points</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <i data-lucide="award"
+                                class="absolute right-[-20%] bottom-[-10%] w-48 h-48 opacity-10 rotate-12 pointer-events-none"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="dash-overlay" class="fixed inset-0 bg-black/50 z-[100] hidden backdrop-blur-sm"></div>
+    <div id="dash-drawer"
+        class="fixed top-0 left-0 h-full w-[280px] bg-[var(--bg-card)] z-[110] shadow-2xl transition-transform -translate-x-full flex flex-col p-6">
+        <div class="flex justify-between items-center mb-10">
+            <div class="flex items-center gap-2">
+                <img src="assets/logo.png" alt="Logo" class="h-8 w-8">
+                <span class="font-bold text-[var(--primary)]">APEX ALPINE</span>
+            </div>
+            <button id="close-drawer" class="p-1"><i data-lucide="x" class="w-6 h-6"></i></button>
+        </div>
+        <nav class="flex flex-col gap-2">
+            <a href="dashboard.html" class="sidebar-link active"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+            <a href="#" class="sidebar-link"><i data-lucide="calendar"></i> Bookings</a>
+            <a href="#" class="sidebar-link"><i data-lucide="history"></i> History</a>
+            <a href="#" class="sidebar-link"><i data-lucide="award"></i> Perks</a>
+            <hr class="border-[var(--border-color)] my-4">
+            <a href="login.html" class="sidebar-link text-red-500"><i data-lucide="log-out"></i> Logout</a>
+        </nav>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Dashboard Drawer Toggle
+        const burgerBtn = document.getElementById('dash-burger');
+        const drawer = document.getElementById('dash-drawer');
+        const overlay = document.getElementById('dash-overlay');
+        const closeBtn = document.getElementById('close-drawer');
+
+        if (burgerBtn) {
+            burgerBtn.addEventListener('click', () => {
+                drawer.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            });
+
+            const close = () => {
+                drawer.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            };
+
+            closeBtn.addEventListener('click', close);
+            overlay.addEventListener('click', close);
+        }
+    </script>
+</body>
+
+</html>

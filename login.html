@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Apex Alpine</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00A8E8',
+                        secondary: '#1B262C',
+                        accent: '#FF4C29',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            overflow: hidden;
+            /* Rule 19: No vertical scroll */
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-100 dark:bg-slate-950 flex items-center justify-center p-6">
+
+    <div
+        class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 bg-[var(--bg-card)] rounded-[2.5rem] shadow-2xl overflow-hidden border border-[var(--border-color)] animate-fade-in">
+
+        <!-- Branding Side (Rule 20, 21) -->
+        <div
+            class="hidden md:flex flex-col items-center justify-center bg-[var(--secondary)] text-white p-12 text-center relative overflow-hidden">
+            <div class="absolute inset-0 opacity-20">
+                <img src="assets/hero_bg.png" alt="Bg" class="w-full h-full object-cover">
+            </div>
+            <div class="relative z-10">
+                <a href="index.html" class="flex flex-col items-center gap-4 mb-6">
+                    <img src="assets/logo.png" alt="Logo"
+                        class="h-10 w-16 object-contain hover:scale-110 transition-transform">
+                    <h1 class="text-3xl font-bold uppercase tracking-widest">Apex Alpine</h1>
+                </a>
+                <p class="text-white/60 text-lg leading-relaxed">Your portal to the world's finest ski and snowboard
+                    equipment.</p>
+            </div>
+        </div>
+
+        <!-- Login Card -->
+        <div class="p-8 md:p-12 flex flex-col justify-center">
+            <div class="md:hidden flex items-center justify-center gap-2 mb-10">
+                <a href="index.html" class="flex items-center gap-2">
+                    <img src="assets/logo.png" alt="Logo" class="h-10 w-10">
+                    <span class="text-xl font-bold text-[var(--primary)] uppercase">Apex Alpine</span>
+                </a>
+            </div>
+
+            <h2 class="text-3xl font-bold mb-2">Welcome Back</h2>
+            <p class="text-[var(--text-muted)] mb-6">Please enter your details to sign in.</p>
+
+            <form class="flex flex-col gap-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-2 ml-1">Email Address</label>
+                    <input type="email" placeholder="name@example.com"
+                        class="w-full bg-slate-50 dark:bg-slate-900 border border-[var(--border-color)] rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all">
+                </div>
+                <div>
+                    <div class="flex justify-between items-center mb-2 px-1">
+                        <label class="text-sm font-semibold">Password</label>
+                        <a href="#" class="text-xs text-[var(--primary)] hover:underline">Forgot?</a>
+                    </div>
+                    <input type="password" placeholder="••••••••"
+                        class="w-full bg-slate-50 dark:bg-slate-900 border border-[var(--border-color)] rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-[var(--primary)] transition-all">
+                </div>
+
+                <div class="flex items-center gap-2 ml-1">
+                    <input type="checkbox" id="remember" class="w-4 h-4 rounded text-[var(--primary)]">
+                    <label for="remember" class="text-sm text-[var(--text-muted)]">Remember me for 30 days</label>
+                </div>
+
+                <button type="submit" class="btn-primary w-full mt-4" style="height: 52px;">Sign In</button>
+
+                <div class="relative my-4">
+                    <hr class="border-[var(--border-color)]">
+                    <span
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--bg-card)] px-4 text-xs text-[var(--text-muted)]">OR</span>
+                </div>
+
+                <!-- Social Login (Rule 28) -->
+                <div class="grid grid-cols-2 gap-4">
+                    <button
+                        class="social-icon flex items-center justify-center gap-2 border border-[var(--border-color)] rounded-xl py-3 transition-all">
+                        <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5">
+                        <span class="text-sm font-medium">Google</span>
+                    </button>
+                    <button
+                        class="social-icon flex items-center justify-center gap-2 border border-[var(--border-color)] rounded-xl py-3 transition-all">
+                        <img src="https://www.svgrepo.com/show/475633/apple-color.svg" class="w-5 h-5 dark:invert">
+                        <span class="text-sm font-medium">Apple</span>
+                    </button>
+                </div>
+            </form>
+
+            <p class="text-center text-sm text-[var(--text-muted)] mt-6">
+                Don't have an account? <a href="signup.html"
+                    class="text-[var(--primary)] font-bold hover:underline">Sign up for free</a>
+            </p>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>
